@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <title>Frontend Mentor | Bento Grid</title>
+  <title>Social Media Dashboard</title>
   
   <style>
     /* General Styles */
+    * {
+      box-sizing: border-box; /* Ensures padding/margins don’t affect element size */
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: #F9F9F9;
-      margin: 0;
-      padding: 0;
       color: hsl(0, 0%, 20%);
     }
 
@@ -20,26 +23,26 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: 0; /* No padding for the container */
     }
 
     .row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem; /* Controls space between items */
+      gap: 0; /* No space between grid items */
+      justify-content: space-between;
     }
 
     .col {
-      padding: 0;
       flex: 1;
     }
 
-    .col-lg-4 {
-      width: 32%; /* Ensures 3 cards per row */
+    .col-4 {
+      flex: 0 0 32.8%; /* 3 equal columns */
     }
 
-    .col-lg-8 {
-      width: 66%; /* Ensures large card spans two columns */
+    .col-8 {
+      flex: 0 0 66.6%; /* Spans 2/3 of the row */
     }
 
     /* Card Styling */
@@ -53,24 +56,25 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      height: 100%; /* Ensure all cards fill available space */
+      height: 100%;
+      margin: 0; /* Remove margins between cards */
     }
 
-    /* Custom Background Colors */
-    .bg-custom-primary {
+    /* Background Colors */
+    .bg-primary {
       background-color: hsl(31, 66%, 93%);
     }
 
-    .bg-custom-secondary {
+    .bg-secondary {
       background-color: hsl(256, 67%, 59%);
       color: white;
     }
 
-    .bg-custom-highlight {
+    .bg-highlight {
       background-color: hsl(39, 100%, 71%);
     }
 
-    .bg-custom-light {
+    .bg-light {
       background-color: hsl(254, 88%, 90%);
     }
 
@@ -78,12 +82,11 @@
     h1, h2 {
       font-weight: bold;
       line-height: 1.4;
-      margin: 0;
+      margin: 0.5rem 0;
     }
 
     h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
+      font-size: 2.2rem;
     }
 
     h2 {
@@ -95,21 +98,20 @@
       font-weight: 800;
     }
 
-    /* Adjust card text */
-    .card p {
+    p {
       font-size: 1.2rem;
       color: hsl(0, 0%, 30%);
-      line-height: 1.8;
+      line-height: 1.6;
     }
 
     /* Image Styling */
     .card img {
       max-width: 80%; /* Keeps images proportional */
       height: auto;
-      margin: 1rem auto;
+      margin: 1rem 0;
     }
 
-    /* Large Stats Text */
+    /* Stats Styling */
     .stats-percentage {
       font-size: 3rem;
       font-weight: bold;
@@ -121,8 +123,8 @@
 
     /* Responsive Adjustments */
     @media (max-width: 768px) {
-      .col-lg-4, .col-lg-8 {
-        width: 100%; /* Full-width cards on small screens */
+      .col-4, .col-8 {
+        flex: 0 0 100%; /* Full-width cards on small screens */
       }
 
       h1 {
@@ -139,23 +141,23 @@
 <body>
   <div class="container">
     <div class="row">
-      <div class="col-lg-4">
-        <div class="card bg-custom-primary">
+      <div class="col-4">
+        <div class="card bg-primary">
           <h2>Create and schedule content <span>quicker.</span></h2>
           <img src="./assets/images/illustration-create-post.webp" alt="Create Post">
         </div>
       </div>
 
-      <div class="col-lg-4">
-        <div class="card bg-custom-secondary text-white">
+      <div class="col-4">
+        <div class="card bg-secondary">
           <h1>Social Media <span>10x</span> Faster with AI</h1>
           <img src="./assets/images/illustration-five-stars.webp" alt="Five Stars">
           <p>Over 4,000 5-star reviews</p>
         </div>
       </div>
 
-      <div class="col-lg-4">
-        <div class="card bg-custom-light">
+      <div class="col-4">
+        <div class="card bg-light">
           <h2>Schedule to social media.</h2>
           <img src="./assets/images/illustration-schedule-posts.webp" alt="Schedule Posts">
           <p>Optimize post timings to publish content at the perfect time for your audience.</p>
@@ -164,22 +166,22 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4">
-        <div class="card bg-custom-highlight">
+      <div class="col-4">
+        <div class="card bg-highlight">
           <h2>Write your content using AI.</h2>
           <img src="./assets/images/illustration-ai-content.webp" alt="AI Content">
         </div>
       </div>
 
-      <div class="col-lg-4">
+      <div class="col-4">
         <div class="card">
           <img src="./assets/images/illustration-multiple-platforms.webp" alt="Multiple Platforms">
           <h2>Manage multiple accounts and platforms.</h2>
         </div>
       </div>
 
-      <div class="col-lg-4">
-        <div class="card bg-custom-highlight">
+      <div class="col-4">
+        <div class="card bg-highlight">
           <h2>Maintain a consistent posting schedule</h2>
           <img src="./assets/images/illustration-consistent-schedule.webp" alt="Consistent Schedule">
         </div>
@@ -187,7 +189,7 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-4">
         <div class="card">
           <h2>>56%</h2>
           <p class="stats-description">faster audience growth</p>
@@ -195,9 +197,9 @@
         </div>
       </div>
 
-      <div class="col-lg-8">
-        <div class="card bg-custom-secondary text-white d-flex">
-          <img src="./assets/images/illustration-grow-followers.webp" alt="Grow Followers" class="w-50">
+      <div class="col-8">
+        <div class="card bg-secondary">
+          <img src="./assets/images/illustration-grow-followers.webp" alt="Grow Followers" style="width: 50%;">
           <h2>Grow followers with non-stop content.</h2>
         </div>
       </div>
